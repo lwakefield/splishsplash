@@ -22,6 +22,10 @@
   {/each}
 </div>
 
+<button
+  on:click={() => document.documentElement.requestFullscreen()}
+>⤢</button>
+
 <style>
   :global(html), :global(body) {
     padding: 0;
@@ -43,5 +47,14 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+  }
+  button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
   }
 </style>
