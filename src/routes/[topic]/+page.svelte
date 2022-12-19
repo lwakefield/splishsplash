@@ -6,6 +6,17 @@
   $: index = tick % data.images.length
 
   setInterval(() => { tick++ }, 15 * 60_000)
+
+  function makeFullScreen () {
+    const doc = document.documentElement
+    if (doc.requestFullscreen) {
+      doc.requestFullscreen();
+    } else if (doc.webkitRequestFullscreen) { /* Safari */
+      doc.webkitRequestFullscreen();
+    } else if (doc.msRequestFullscreen) { /* IE11 */
+      doc.msRequestFullscreen();
+    }
+  }
 </script>
 
 <svelte:head>
@@ -23,7 +34,7 @@
 </div>
 
 <button
-  on:click={() => document.documentElement.requestFullscreen()}
+  on:click={makeFullScreen}
 >⤢</button>
 
 <style>
